@@ -6,13 +6,14 @@ import * as utils from './utils.js';
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Element Selection                                    */
+/*  Selection                                            */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 const displayTime = utils.select('h1');
 const hourInput = utils.select('.hour-input');
 const minuteInput = utils.select('.minute-input');
 const setAlarmButton = utils.select('.set-alarm-button');
 const alarmDisplay = utils.select('.alarm-display');
+const alarmSound = new Audio('./assets/media/alarm-sound.mp3')
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Alarm                                                */
