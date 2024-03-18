@@ -1,0 +1,70 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Base                                                 */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.flex {
+  display: flex;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+:root {
+  --app-background-dark: rgb(24, 23, 32);
+}
+
+body {
+  background-color: var(--app-background-dark);
+  font-family: 'Noto Sans', 'Open Sans', arial, sans-serif;
+}
+
+.container {
+  width: min(100% - 30px, 1080px);
+  margin-inline: auto;
+  height: 100%;
+}
+
+main {
+  height: 100svh;
+}
+
+h1, p, span, i, input{
+  color: #fff;
+} 
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Component                                            */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.alarm-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 8rem;
+}
+
+.set-alarm-wrapper {
+  gap: 1rem
+}
+
+.set-alarm-wrapper input {
+  border-radius: 25px;
+  text-align: center;
+  padding: 1rem 2.5rem;
+}
+
+.input {
+  width: 7.8rem;
+  background-color: rgb(255 255 255 / 0.15);
+}
+
+.set-alarm-button {
+  background-color: #009d5e;
+}
