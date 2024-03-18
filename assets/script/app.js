@@ -11,6 +11,8 @@ import * as utils from './utils.js';
 const displayTime = utils.select('h1');
 const hourInput = utils.select('.hour-input');
 const minuteInput = utils.select('.minute-input');
+const setAlarmButton = utils.select('.set-alarm-button');
+const alarmDisplay = utils.select('.alarm-display')
 
 function getCurrentTime() {
   const now = new Date();
@@ -27,8 +29,12 @@ function formattedTime(time) {
   return String(time).padStart(2, '0'); // Adds 0 to one digit num
 }
 
-let userHourInput = formattedTime(hourInput.value);
-let userMinuteInput = formattedTime(minuteInput.value);
+
+utils.listen('click', setAlarmButton, () => {
+  const userHourInput = formattedTime(hourInput.value);
+  const userMinuteInput = formattedTime(minuteInput.value);
+  alarmDisplay.innerHTML = `${userHourInput}:${userMinuteInput}`;
+});
 
 
 
