@@ -40,14 +40,23 @@ function getUserTime() {
 
 utils.listen('click', setAlarmButton, getUserTime);
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Alarm Validation                                     */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function enforceNumericInput(event) {
   event.target.value = event.target.value.replace(/[^0-9]/g, '');
 }
 utils.listen('input', hourInput, enforceNumericInput);
 utils.listen('input', minuteInput, enforceNumericInput);
 
+function validateAlarmInput() {
+  const hourInputValue = parseInt(hourInput.value);
+  const minuteInputValue = parseInt(minuteInput.value);
 
-
-
-
-
+  if (!(hourInputValue >= 0 && hourInputValue <= 23)) {
+    alarmDisplay.innerHTML = 'Please enter a number between 0 and 23 for hours';
+  } else if (!(minuteInputValue >=0 && minuteInputValue <= 59)) {
+    alarmDisplay.innerHTML = 'Please enter a number between 0 and 59 for minutes';
+  }
+}
+utils.listen('click', setAlarmButton, validateAlarmInput);
