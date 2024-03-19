@@ -13,6 +13,10 @@
   gap: 2rem;
 }
 
+.gap-3 {
+  gap: 3rem;
+}
+
 :root {
   --app-background-dark: rgb(24, 23, 32);
   --error-color: #ff5252;
@@ -50,6 +54,11 @@ h1, p, span, i, input{
 h1 {
   font-size: 8rem;
   line-height: 1;
+}
+
+.alarm-wrapper {
+  justify-content: center;
+  align-items: center;
 }
 
 .input-wrapper {

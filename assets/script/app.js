@@ -19,8 +19,12 @@ alarmSound.loop = true;
 alarmSound.playing = false;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Alarm                                                */
+/* Display Current Time                                  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function formattedTime(time) {
+  return String(time).padStart(2, '0'); // Adds 0 to one digit num
+}
+
 function getCurrentTime() {
   const now = new Date();
   const currentHour = formattedTime(now.getHours()); 
@@ -31,11 +35,6 @@ function getCurrentTime() {
 setInterval(() => {
   displayTime.innerHTML = getCurrentTime();
 }, 1000);
-
-function formattedTime(time) {
-  return String(time).padStart(2, '0'); // Adds 0 to one digit num
-}
-
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Alarm Validation                                     */
@@ -51,21 +50,19 @@ function validateAlarmInput() {
   const minuteInputValue = parseInt(minuteInput.value);
 
   if (!(hourInputValue >= 0 && hourInputValue <= 23)) {
-    errorMessage.innerHTML = 'Please enter a number between 0 and 23 for hours';
+    errorMessage.innerHTML = 'Oops! Hours should be a number between 0 and 23.';
     return false;
   } else if (!(minuteInputValue >=0 && minuteInputValue <= 59)) {
-    errorMessage.innerHTML = 'Please enter a number between 0 and 59 for minutes';
+    errorMessage.innerHTML = 'Oops! Minutes should be a number between 0 and 59.';
     return false;
   }
 
   return true;
 }
-/* utils.listen('click', setAlarmButton, validateAlarmInput); */
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Alarm Functionality                                  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
 function playAlarm() {
   alarmSound.play();
   alarmSound.playing = true;
@@ -76,7 +73,7 @@ let alarmTime = '';
 function getUserTime() {
   if (validateAlarmInput()) {
     errorMessage.innerHTML = '';
-    
+
     const userHourInput = formattedTime(parseInt(hourInput.value));
     const userMinuteInput = formattedTime(parseInt(minuteInput.value));
     alarmTime = `${userHourInput}:${userMinuteInput}`;
@@ -85,6 +82,11 @@ function getUserTime() {
 }
 
 utils.listen('click', setAlarmButton, getUserTime);
+utils.listen('keypress', document, function(event) {
+  if (event.key === 'Enter') {
+    getUserTime();
+  }
+});
 
 setInterval(() => {
   const currentTime = getCurrentTime();
@@ -93,7 +95,7 @@ setInterval(() => {
   } else if (alarmSound.playing) {
     stopAlarm();
   }
-}, 60000);
+}, 1000);
 
 function stopAlarm() {
   alarmSound.pause();
@@ -103,8 +105,8 @@ function stopAlarm() {
 
 
 
-/* const stopAlarmButton = utils.select('.stop-alarm-button');
+/* 
+IF TIME:
 
-
-
+const stopAlarmButton = utils.select('.stop-alarm-button');
 utils.listen('click', stopAlarmButton, stopAlarm); */
