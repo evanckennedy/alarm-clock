@@ -15,6 +15,7 @@
 
 :root {
   --app-background-dark: rgb(24, 23, 32);
+  --error-color: #ff5252;
 }
 
 body {
@@ -67,4 +68,9 @@ h1 {
 
 .set-alarm-button {
   background-color: #009d5e;
+  font-weight: 600;
+}
+
+.error-message {
+  color: var(--error-color);
 }
