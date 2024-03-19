@@ -18,18 +18,20 @@
   </head>
   <body>
     <main>
-      <div class="container alarm-container">
+      <div class="container alarm-container gap-2">
         <h1>00:00</h1>
         <div class="alarm-wrapper">
           <i class="fa-solid fa-bell"></i>
           <span class="alarm-display"></span>
         </div>
-        <form class="set-alarm-wrapper flex">
-          <input class="hour-input input" type="text" maxlength="2" placeholder="HH">
-          <input class="minute-input input" type="text" maxlength="2" placeholder="MM">
-          <input class="set-alarm-button" type="button" value="Set alarm">
-        </form>
-        <p class="error-message"></p>
+        <div class="input-wrapper flex gap-1">
+          <form class="set-alarm-wrapper flex gap-1">
+            <input class="hour-input input" type="text" maxlength="2" placeholder="HH">
+            <input class="minute-input input" type="text" maxlength="2" placeholder="MM">
+            <input class="set-alarm-button" type="button" value="Set alarm">
+          </form>
+          <p class="error-message"></p>
+        </div> 
       </div>
     </main>
   </body>

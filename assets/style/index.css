@@ -49,10 +49,13 @@ h1, p, span, i, input{
 
 h1 {
   font-size: 8rem;
+  line-height: 1;
 }
 
-.set-alarm-wrapper {
-  gap: 1rem
+.input-wrapper {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .set-alarm-wrapper input {
