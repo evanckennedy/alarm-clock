@@ -20,6 +20,7 @@
 :root {
   --app-background-dark: rgb(24, 23, 32);
   --error-color: #ff5252;
+  --grey-font-color: #97a7b0;
 }
 
 body {
@@ -59,6 +60,11 @@ h1 {
 .alarm-wrapper {
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
+  i, span {
+    color: var(--grey-font-color);
+  }
+  
 }
 
 .input-wrapper {
@@ -74,13 +80,26 @@ h1 {
 }
 
 .input {
-  width: 7.8rem;
+  width: 8rem;
   background-color: rgb(255 255 255 / 0.15);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  transition: all 0.15s ease-in-out;
+}
+
+.input:focus {
+  border: 1px solid rgb(255 255 255 / 0.5);
 }
 
 .set-alarm-button {
   background-color: #009d5e;
   font-weight: 600;
+  border: 1px solid #009d5e;
+  transition: all 0.15s ease-in-out;
+}
+
+.set-alarm-button:hover {
+  border: 1px solid rgb(255 255 255 / 0.5);
+  background-color: #00a367;
 }
 
 .error-message {
