@@ -50,10 +50,10 @@ function validateAlarmInput() {
   const minuteInputValue = parseInt(minuteInput.value);
 
   if (!(hourInputValue >= 0 && hourInputValue <= 23)) {
-    errorMessage.innerHTML = 'Oops! Hours should be a number between 0 and 23.';
+    errorMessage.innerHTML = 'Hours should be a number between 0 and 23.';
     return false;
   } else if (!(minuteInputValue >=0 && minuteInputValue <= 59)) {
-    errorMessage.innerHTML = 'Oops! Minutes should be a number between 0 and 59.';
+    errorMessage.innerHTML = 'Minutes should be a number between 0 and 59.';
     return false;
   }
 
