@@ -102,11 +102,3 @@ function stopAlarm() {
   alarmSound.currentTime = 0;
   alarmSound.playing = false;
 }
-
-
-
-/* 
-IF TIME:
-
-const stopAlarmButton = utils.select('.stop-alarm-button');
-utils.listen('click', stopAlarmButton, stopAlarm); */
